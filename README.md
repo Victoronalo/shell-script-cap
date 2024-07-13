@@ -8,6 +8,29 @@ Objective:
 -I began with script enhancement of CentOS support.
 
 
+#!/bin/bash
+
+if [ -f /etc/redhat-release ]; the
+
+    major_version=$(grep -oP '\d' /etc/redhat-release | head -1)
+
+    if [ "$major_version" -eq 7 ]; then
+        echo "This is CentOS/RHEL 7"
+
+    elif [ "$major_version" -eq 8 ]; then
+        echo "This is CentOS/RHEL 8"
+
+    else
+        echo "Unsupported CentOS/RHEL version: $major_version"
+        exit 1
+    fi
+else
+    echo "This script is intended for CentOS/RHEL."
+    exit 1
+fi
+
+
+
 -To enhance support for CentOS in a shell script, you'll typically want to ensure compatibility with CentOS-specific commands, package managers, and system configurations. Here are some general tips and considerations to make your shell script CentOS-friendly.
 
 
